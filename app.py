@@ -6,16 +6,11 @@ from datetime import datetime, date as datedate, datetime as dt
 import mysql.connector
 from dotenv import load_dotenv
 
-# Read version from VERSION file
-try:
-    with open('VERSION', 'r') as f:
-        __version__ = f.read().strip()
-except FileNotFoundError:
-    __version__ = 'unknown'
+load_dotenv()
+
+__version__ = os.getenv('VERSION', 'unknown')
 
 app = Flask(__name__)
-
-load_dotenv()
 
 TIMEZONE = os.getenv('TZ', 'UTC')
 tz = pytz.timezone(TIMEZONE)

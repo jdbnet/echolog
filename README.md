@@ -11,7 +11,7 @@ A Flask-based web application for personal homelab journaling. Track your daily 
 - **Daily Journal Entries**: Create and manage journal entries for any date
 - **Streak Tracking**: Automatically calculates consecutive days with entries
 - **Search Functionality**: Search by keyword or filter by specific date
-- **PWA Support**: Progressive Web App with offline capabilities and installable on mobile devices
+- **PWA Support**: Progressive Web App making this installable on mobile devices
 - **Modern UI**: Beautiful gradient design with Tailwind CSS and responsive layout
 - **Optional Authentication**: Enable login protection with environment variables
 - **MySQL Backend**: Robust data persistence with MySQL/MariaDB
@@ -35,7 +35,7 @@ docker run -d \
   -e LOGIN_ENABLED=true \
   -e LOGIN_USERNAME=admin \
   -e LOGIN_PASSWORD=your_password \
-  ghcr.io/jdb-net/echolog:latest
+  cr.jdbnet.co.uk/public/echolog:latest
 ```
 
 ### Docker Compose
@@ -45,7 +45,7 @@ version: '3.8'
 
 services:
   echolog:
-    image: ghcr.io/jdb-net/echolog:latest
+    image: cr.jdbnet.co.uk/public/echolog:latest
     container_name: echolog
     restart: unless-stopped
     ports:
@@ -130,7 +130,7 @@ spec:
     spec:
       containers:
       - name: echolog
-        image: ghcr.io/jdb-net/echolog:latest
+        image: cr.jdbnet.co.uk/public/echolog:latest
         ports:
         - containerPort: 5000
         env:
@@ -172,7 +172,6 @@ EchoLog can be installed as a Progressive Web App on supported devices:
 
 - **Mobile**: Add to home screen from browser menu
 - **Desktop**: Install from browser address bar
-- **Offline**: Works offline with cached content
 
 ## Security Notes
 
