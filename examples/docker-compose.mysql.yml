@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mariadb:latest
+    container_name: echolog-mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=echolog
+      - MYSQL_USER=echolog
+      - MYSQL_PASSWORD=echolog_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  echolog:
+    image: cr.jdbnet.co.uk/public/echolog:latest
+    container_name: echolog
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - DB_TYPE=mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=echolog
+      - MYSQL_PASSWORD=echolog_password
+      - MYSQL_DATABASE=echolog
+      - SECRET_KEY=change-me-in-production
+      - TZ=Europe/London
+      - LOGIN_ENABLED=false
+      # Uncomment below to enable login protection
+      # - LOGIN_ENABLED=true
+      # - LOGIN_USERNAME=admin
+      # - LOGIN_PASSWORD=change-me
+
+volumes:
+  mysql-data:
