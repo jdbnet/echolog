@@ -2,3 +2,4 @@ tailwindcss
 static/output.css
 .env
 __pycache__
+echolog.db

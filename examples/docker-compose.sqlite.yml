@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  echolog:
+    image: cr.jdbnet.co.uk/public/echolog:latest
+    container_name: echolog
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - echolog-data:/data
+    environment:
+      - DB_TYPE=sqlite
+      - SQLITE_DB=/data/echolog.db
+      - SECRET_KEY=change-me-in-production
+      - TZ=Europe/London
+      - LOGIN_ENABLED=false
+      # Uncomment below to enable login protection
+      # - LOGIN_ENABLED=true
+      # - LOGIN_USERNAME=admin
+      # - LOGIN_PASSWORD=change-me
+
+volumes:
+  echolog-data:

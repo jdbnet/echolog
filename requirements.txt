@@ -1,5 +1,8 @@
 Flask
-mysql-connector-python
 python-dotenv
 pytz
 gunicorn
+# Optional database drivers:
+# For MySQL/MariaDB support, uncomment the line below:
+# mysql-connector-python
+# SQLite is built-in with Python
