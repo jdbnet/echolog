@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://projects.jdbnet.co.uk/echolog/img/favicon.png" alt="EchoLog" width="200" />
+  <img src="https://assets.jdbnet.co.uk/projects/echolog.png" alt="EchoLog" width="200" />
   
   # EchoLog
 </div>
