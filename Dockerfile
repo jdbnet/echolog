@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM python:3.15-slim
 LABEL org.opencontainers.image.vendor="JDB-NET"
 WORKDIR /app
 COPY . /app
